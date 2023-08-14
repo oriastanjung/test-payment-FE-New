@@ -17,7 +17,28 @@ function App() {
   };
 
   const handleBayar = () => {
-    window.snap.pay(token);
+    if (token) {
+      const snap = window.snap;
+      
+      snap.pay(token, {
+        onSuccess: (result) => {
+          alert("Payment success:", result);
+          // Handle payment success, update UI, etc.
+        },
+        onPending: (result) => {
+          alert("Payment pending:", result);
+          // Handle pending payment
+        },
+        onError: (result) => {
+          alert("Payment error:", result);
+          // Handle payment error
+        },
+        onClose: () => {
+          alert("Payment popup closed");
+          // Handle popup closed
+        }
+      });
+    }
   };
 
   useEffect(() => {
