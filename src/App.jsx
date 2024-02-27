@@ -22,7 +22,8 @@ function App() {
       
       snap.pay(token, {
         onSuccess: (result) => {
-          window.href = result.finish_redirect_url
+          console.log(result?.finish_redirect_url)
+          window.location.href = result?.finish_redirect_url
           // Handle payment success, update UI, etc.
         },
         onPending: (result) => {
