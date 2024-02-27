@@ -22,7 +22,7 @@ function App() {
       
       snap.pay(token, {
         onSuccess: (result) => {
-          alert("Payment success:", result);
+          console.log(result)
           // Handle payment success, update UI, etc.
         },
         onPending: (result) => {
@@ -42,7 +42,7 @@ function App() {
   };
 
   useEffect(() => {
-    loadMidtransSnapScript("SB-Mid-client-3GGmxBhoa4SEkFZs");
+    loadMidtransSnapScript("SB-Mid-client-VegDwZVhGmg9xQXM");
   }, []);
   return (
     <>
